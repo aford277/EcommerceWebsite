@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Product Homepage{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Thank you for your order from Congo!</h1>
+    <p>Your order number is <strong>#{{ order_id }}</strong>.</p>
+    <p>Your expected delivery date <strong>{{ delivery_date }}</strong>.</p>
+</main>
+{% endblock %}

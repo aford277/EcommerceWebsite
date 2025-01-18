@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Product Homepage{% endblock %}
+
+{% block content %}
+<!-- Search Bar -->
+<form method="GET" action="/">
+    <input type="text" name="search" placeholder="Search for a product...">
+    <button type="submit">Search</button>
+</form>
+
+<div class="products">
+    {% for product in products %}
+        <div class="product">
+            <a href="{{ url_for('product_page', product_id=product['id']) }}">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p>${{ product.price }}</p>
+                <p>Rating: {{ product.rating }}</p>
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}Congo{% endblock %}</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-button">Homepage</a>
+        <a href="{{ url_for('cart') }}" class="nav-button">Cart ({{ session['cart']|length if 'cart' in session else 0 }})</a>
+        {% if user_id %}
+            <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+        {% else %}
+            <a href="{{ url_for('login') }}"><button>Login</button></a>
+            <a href="{{ url_for('signup') }}"><button>Sign up</button></a>
+        {% endif %}
+    </nav>
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

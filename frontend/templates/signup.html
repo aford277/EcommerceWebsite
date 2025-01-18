@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+    <h1>Sign Up</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form action="/signup" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ email }}" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ password }}" required>
+        <br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" value="{{ confirm_password }}" required>
+        <br>
+        <input type="checkbox" id="show_password" onclick="togglePasswordVisibility()"> Show Password<br><br>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/login">Log in</a></p>
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+{% endblock %}

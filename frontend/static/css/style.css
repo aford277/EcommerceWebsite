@@ -1,0 +1,22 @@
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-button {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.nav-button:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    padding: 20px;
+}
